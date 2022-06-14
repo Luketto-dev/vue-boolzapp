@@ -1,0 +1,48 @@
+:root{
+    --bs-success: #009688;
+    --bs-success-rgb: 0, 150, 136;
+
+    --bs-primary: #EAEAEA;
+    --bs-primary-rgb: 234. 234, 234
+}
+
+body{
+    background-color: var(--bs-primary);
+}
+
+.bg-top{
+    background-color: var(--bs-success);
+    height: 150px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.main-container{
+    background-color: white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: calc(100vh - 2rem);
+    position: relative;
+    padding: 0;
+}
+
+.main-container .sidebar{
+    min-width: 400px;
+}
+
+.sidebar .my-account{
+    background-color: var(--bs-primary);
+}
+
+.sidebar .my-account-info img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.sidebar .my-account-icons a{
+    width: 35px;
+    color: #B1B1B1;
+}
+
