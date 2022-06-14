@@ -52,7 +52,7 @@
                 <!-- contenitore dei contatti -->
                 <div class="contacts-wrapper flex-grow-1 overflow-auto">
                     <div v-for="(contact, i) in contacts" class="contact d-flex py-3 px-3 position-relative">
-                        <img :src="contact.avatar" alt="">
+                        <img :src="getUrls(contact.avatar)" alt="">
                         <div>
                             <h5>{{contact.name}}</h5>
                             <div>ultimo messaggio inviato</div>
@@ -62,12 +62,15 @@
                 </div>
             </div>
             <div class="chat bg-danger d-flex flex-column flex-grow-1">
+                <!-- barra del contatto con cui stai chattando -->
                 <div class="chat-contact flex-shrink-0">
                     ciao
                 </div>
+                <!-- display dei messaggi -->
                 <div class="chat-messages flex-grow-1 bg-dark">
 
                 </div>
+                <!-- barra dove scrivere e inviare il messaggio -->
                 <div class="chat-write-messages flex-shrink-0">
                     ciao
                 </div>

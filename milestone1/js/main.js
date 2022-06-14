@@ -1,7 +1,7 @@
 const contatti = [
   {
     name: "Michele",
-    avatar: "../img/avatar_1.jpg",
+    avatar: "_1",
     visible: true,
     messages: [
       {
@@ -23,7 +23,7 @@ const contatti = [
   },
   {
     name: "Fabio",
-    avatar: "../img/avatar_2.jpg",
+    avatar: "_2",
     visible: true,
     messages: [
       {
@@ -45,7 +45,7 @@ const contatti = [
   },
   {
     name: "Samuele",
-    avatar: "../img/avatar_3.jpg",
+    avatar: "_3",
     visible: true,
     messages: [
       {
@@ -67,7 +67,7 @@ const contatti = [
   },
   {
     name: "Alessandro B.",
-    avatar: "../img/avatar_4.jpg",
+    avatar: "_4",
     visible: true,
     messages: [
       {
@@ -84,7 +84,7 @@ const contatti = [
   },
   {
     name: "Alessandro L.",
-    avatar: "../img/avatar_5.jpg",
+    avatar: "_5",
     visible: true,
     messages: [
       {
@@ -101,7 +101,7 @@ const contatti = [
   },
   {
     name: "Claudia",
-    avatar: "../img/avatar_6.jpg",
+    avatar: "_6",
     visible: true,
     messages: [
       {
@@ -123,7 +123,7 @@ const contatti = [
   },
   {
     name: "Federico",
-    avatar: "../img/avatar_7.jpg",
+    avatar: "_7",
     visible: true,
     messages: [
       {
@@ -140,7 +140,7 @@ const contatti = [
   },
   {
     name: "Davide",
-    avatar: "../img/avatar_8.jpg",
+    avatar: "_8",
     visible: true,
     messages: [
       {
@@ -167,5 +167,14 @@ const boolZapp = new Vue({
   el: "#app",
   data:{
     contacts: contatti,
+  },
+  methods:{
+    getUrls: function(idImg){
+      return "../img/avatar" + idImg + ".jpg"
+    }
   }
 })
+
+/*  -----------------------------------------------------------------------------------------------
+  '../img/avatar' + contact.avatar + '.jpg'
+--------------------------------------------------------------------------------------------------- */
