@@ -52,7 +52,7 @@
                 <!-- contenitore dei contatti -->
                 <div class="contacts-wrapper flex-grow-1">
                     <div v-for="(contact, i) in contacts" class="contact d-flex py-3 px-3 position-relative">
-                        <img :src="../img/avatar{contact.avatar}.jpg" alt="">
+                        <img :src="contact.avatar" alt="">
                         <div>
                             <h5>{{contact.name}}</h5>
                             <div>ultimo messaggio inviato</div>
