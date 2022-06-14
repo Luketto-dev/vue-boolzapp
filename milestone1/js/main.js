@@ -161,3 +161,11 @@ const contatti = [
     ],
   },
 ];
+
+
+const boolZapp = new Vue({
+  el: "#app",
+  data:{
+    contacts: contatti,
+  }
+})

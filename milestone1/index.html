@@ -29,22 +29,36 @@
                         <div>Nome utente</div>
                     </div>
                     <div class="my-account-icons d-flex align-items-center">
-                        <a href=""><i class="fa-solid fa-message"></i><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous'/><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css' integrity='sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==' crossorigin='anonymous'/></a>
-                        <a href=""><i class="fa-solid fa-message"></i><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous'/><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css' integrity='sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==' crossorigin='anonymous'/></a>
-                        <a href=""><i class="fa-solid fa-message"></i><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==' crossorigin='anonymous'/><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css' integrity='sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==' crossorigin='anonymous'/></a>
+                        <a href=""><i class="fa-solid fa-circle-notch"></i></a>
+                        <a href=""><i class="fa-solid fa-message"></i></a>
+                        <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
                     </div>
                 </div>
                 <!-- barra notifiche -->
-                <div class="notifications flex-shrink-0">
-                    ciao
+                <div class="notifications py-3 px-3 d-flex flex-shrink-0">
+                    <div><i class="fa-solid fa-bell-slash"></i></div>
+                    <div>
+                        <div>ricevi notifiche dei tui messaggi</div>
+                        <a href="">attiva notifiche</a>
+                    </div>
                 </div>
                 <!-- barra del filtro -->
-                <div class="filter flex-shrink-0">
-                    ciao
+                <div class="filter py-2 px-2 flex-shrink-0">
+                    <form class="d-flex" role="search">
+                        <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input class="form-search" type="search" placeholder="cerca o inizia una nuova chat" aria-label="Search">
+                    </form>
                 </div>
                 <!-- contenitore dei contatti -->
-                <div class="contact-wrapper flex-grow-1 bg-success">
-
+                <div class="contacts-wrapper flex-grow-1">
+                    <div v-for="(contact, i) in contacts" class="contact d-flex py-3 px-3 position-relative">
+                        <img :src="../img/avatar{contact.avatar}.jpg" alt="">
+                        <div>
+                            <h5>{{contact.name}}</h5>
+                            <div>ultimo messaggio inviato</div>
+                        </div>
+                        <div class="date pe-3">12.00</div>
+                    </div>
                 </div>
             </div>
             <div class="chat bg-danger d-flex flex-column flex-grow-1">
