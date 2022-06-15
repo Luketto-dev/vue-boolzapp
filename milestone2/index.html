@@ -69,8 +69,8 @@
                 <!-- barra del contatto con cui stai chattando -->
                 <div class="chat-contact flex-shrink-0 py-2 px-2 d-flex justify-content-between">
                     <div class="chat-contact-info d-flex align-items-center">
-                        <img src="../img/avatar_1.jpg" alt="">
-                        <div>Nome utente</div>
+                        <img :src="getUrls(currentContact.avatar)" alt="">
+                        <div>{{currentContact.name}}</div>
                     </div>
                     <div class="chat-contact-icons d-flex align-items-center">
                         <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -81,8 +81,11 @@
 
                 <!-- display dei messaggi -->
                 <div class="chat-messages flex-grow-1 pt-5 overflow-auto">
-                    <div v-for="currentMessage in currentContact.messages" class="message-container d-flex justify-content-end">
-                        <div :class="currentMessage.status === 'sent' ? 'sent' : 'received'">{{currentMessage.message}}</div>
+                    <div v-for="currentMessage in currentContact.messages" 
+                    class="message-container d-flex" 
+                    :class="currentMessage.status === 'sent' ? 'justify-content-end' : ''">
+                        <div :class="currentMessage.status === 'sent' ? 'sent' : 'received'">
+                            {{currentMessage.message}}</div>
                     </div>
                     <!-- 
                     <div class="message-container d-flex justify-content-end">
@@ -96,7 +99,7 @@
                 <!-- barra dove scrivere e inviare il messaggio -->
                 <div class="chat-write-messages d-flex align-items-center flex-shrink-0">
                     <a href=""><i class="fa-regular fa-face-smile"></i></a>
-                    <input class="input-text" type="text" placeholder="Scrivi un messaggio">
+                    <input @keypress.enter= "addMessage" v-model="newMessage" class="input-text" type="text" placeholder="Scrivi un messaggio">
                     <a href=""><i class="fa-solid fa-microphone"></i></a>
                 </div>
 

@@ -91,6 +91,7 @@ body{
 /* contact */
 .contacts-wrapper .contact{
     border-bottom: 1px solid #e2eaf3;
+    cursor: pointer;
 }
 
 .contacts-wrapper .contact img{
