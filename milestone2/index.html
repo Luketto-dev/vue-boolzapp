@@ -82,7 +82,7 @@
                 <!-- display dei messaggi -->
                 <div class="chat-messages flex-grow-1 pt-5 overflow-auto">
                     <div v-for="currentMessage in currentContact.messages" class="message-container d-flex justify-content-end">
-                        <div :class="{sent : currentMessage.status === 'sent'}">{{currentMessage.message}}</div>
+                        <div :class="currentMessage.status === 'sent' ? 'sent' : 'received'">{{currentMessage.message}}</div>
                     </div>
                     <!-- 
                     <div class="message-container d-flex justify-content-end">
