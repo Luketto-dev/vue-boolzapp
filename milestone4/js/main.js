@@ -228,10 +228,9 @@ const boolZapp = new Vue({
 
     getContactFiltered: function(){
       return this.contacts.filter((contact) => {
-        if (contact.name.includes(this.inputSearch)) {
+        if (contact.name.toLowerCase().includes(this.inputSearch.toLowerCase())) {
           return true
         }
-
         
       })
     }
