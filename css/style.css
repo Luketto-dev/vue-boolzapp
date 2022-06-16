@@ -10,6 +10,10 @@ body{
     background-color: #D7DBD6;
 }
 
+.active{
+    background-color: #D7DBD6;
+}
+
 .bg-top{
     background-color: var(--bs-success);
     height: 150px;

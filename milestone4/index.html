@@ -47,14 +47,16 @@
                 <!-- barra del filtro -->
                 <div class="filter py-2 px-2 flex-shrink-0">
                     <div class="d-flex">
-                        <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <input class="input-text" type="text" placeholder="cerca o inizia una nuova chat" aria-label="Search">
+                        <button class="btn-search" type="submit" @click="getContactFiltered()">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <input v-model="inputSearch" class="input-text" type="text" placeholder="cerca o inizia una nuova chat">
                     </div>
                 </div>
 
                 <!-- contenitore dei contatti -->
                 <div class="contacts-wrapper flex-grow-1 overflow-auto">
-                    <div v-for="(contact) in contacts" @click="getActiveContact(contact)"
+                    <div v-for="(contact) in getContactFiltered()" @click="getActiveContact(contact)"
                     class="contact d-flex py-3 px-3 position-relative"
                         :class="currentContact.avatar === contact.avatar ? 'active' : ''">
                         <img :src="getUrls(contact.avatar)" alt="">
