@@ -26,7 +26,7 @@
                 <div class="my-account py-2 px-2 flex-shrink-0 d-flex justify-content-between">
                     <div class="my-account-info d-flex align-items-center">
                         <img src="../img/avatar_io.jpg" alt="">
-                        <div>Nome utente</div>
+                        <div class="fw-bold">Ludovica</div>
                     </div>
                     <div class="my-account-icons d-flex align-items-center">
                         <a href=""><i class="fa-solid fa-circle-notch"></i></a>
@@ -54,13 +54,14 @@
 
                 <!-- contenitore dei contatti -->
                 <div class="contacts-wrapper flex-grow-1 overflow-auto">
-                    <div v-for="contact in contacts" @click="getActiveContact(contact)" class="contact d-flex py-3 px-3 position-relative">
+                    <div v-for="(contact) in contacts" @click="getActiveContact(contact)"
+                    class="contact d-flex py-3 px-3 position-relative" tabindex="-1">
                         <img :src="getUrls(contact.avatar)" alt="">
                         <div>
-                            <h5>{{contact.name}}</h5>
-                            <div>ultimo messaggio inviato</div>
+                            <div class="fw-bold">{{contact.name}}</div>
+                            <div class="text-muted">ultimo messaggio inviato</div>
                         </div>
-                        <div class="date pe-3">12.00</div>
+                        <div class="date pe-3 text-muted">12.00</div>
                     </div>
                 </div>
             </div>
@@ -70,7 +71,7 @@
                 <div class="chat-contact flex-shrink-0 py-2 px-2 d-flex justify-content-between">
                     <div class="chat-contact-info d-flex align-items-center">
                         <img :src="getUrls(currentContact.avatar)" alt="">
-                        <div>{{currentContact.name}}</div>
+                        <div class="ps-2 fw-bold">{{currentContact.name}}</div>
                     </div>
                     <div class="chat-contact-icons d-flex align-items-center">
                         <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -85,7 +86,12 @@
                     class="message-container d-flex" 
                     :class="currentMessage.status === 'sent' ? 'justify-content-end' : ''">
                         <div :class="currentMessage.status === 'sent' ? 'sent' : 'received'">
-                            {{currentMessage.message}}</div>
+                            {{currentMessage.message}}
+                            <div class="message-date text-end text-muted">
+                                
+                            </div>
+                        </div>
+                        
                     </div>
                     <!-- 
                     <div class="message-container d-flex justify-content-end">
@@ -99,7 +105,8 @@
                 <!-- barra dove scrivere e inviare il messaggio -->
                 <div class="chat-write-messages d-flex align-items-center flex-shrink-0">
                     <a href=""><i class="fa-regular fa-face-smile"></i></a>
-                    <input @keypress.enter= "addMessage" v-model="newMessage" class="input-text" type="text" placeholder="Scrivi un messaggio">
+                    <input @keypress.enter= "addMessage" v-model="inputText"
+                    class="input-text" type="text" placeholder="Scrivi un messaggio">
                     <a href=""><i class="fa-solid fa-microphone"></i></a>
                 </div>
 

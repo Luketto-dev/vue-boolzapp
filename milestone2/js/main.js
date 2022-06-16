@@ -11,7 +11,8 @@
 //Click sul contatto mostra la conversazione del contatto cliccato
 
 //Milestone 3
-//Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” 
+//Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa 
+//e digitando “enter” 
 //il testo viene aggiunto al thread sopra, come messaggio verde
 //Risposta dall’interlocutore: ad ogni inserimento di un messaggio, 
 //l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
@@ -87,7 +88,6 @@ const contatti = [
   {
     name: "Alessandro B.",
     avatar: "_4",
-    visible: true,
     messages: [
       {
         date: "10/01/2020 15:30:55",
@@ -208,24 +208,44 @@ const boolZapp = new Vue({
         },
       ],
     },
-    newMessage:''
+    inputText:'',
+    newMessage: {},
+    responseMessage : {
+        date: "10/01/2020 15:30:55",
+        message: "OK!",
+        status: "received",
+    },
+    
   },
+
   methods:{
     getUrls: function(idImg){
       return "../img/avatar" + idImg + ".jpg"
     },
-    getActiveContact: function(activeContact){
-      this.currentContact = activeContact
+
+    getActiveContact: function(contact,i){
+      this.currentContact = contact
+      
       return this.currentContact
     },
+
     addMessage: function(){
       this.newMessage = {
         date: "10/01/2020 15:30:55",
-        message: this.newMessage,
+        message: this.inputText,
         status: "sent",
       }
       this.currentContact.messages.push(this.newMessage)
-    }
+
+      setTimeout(this.addResponse, 1000)
+    },
+
+    addResponse :function(){
+      this.currentContact.messages.push(this.responseMessage)
+    },
+
+    
+
   }
 })
 

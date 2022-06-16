@@ -94,6 +94,13 @@ body{
     cursor: pointer;
 }
 
+.contacts-wrapper .contact:focus{
+    background-color: #E9EBEB;
+}
+
+
+
+
 .contacts-wrapper .contact img{
     width: 60px;
     border-radius: 50%;
@@ -105,7 +112,7 @@ body{
     right: 0;
 }
 
-/* .char / .chat-message*/
+/* .chat / .chat-message*/
 .chat-messages{
     background-image: url('../img/mine.jpg');
 }
