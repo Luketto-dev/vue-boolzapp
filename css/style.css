@@ -103,8 +103,6 @@ body{
 }
 
 
-
-
 .contacts-wrapper .contact img{
     width: 60px;
     border-radius: 50%;
@@ -138,6 +136,23 @@ body{
 .chat-messages .message-container .received{
     background-color: white
 }
+
+.chat-messages .message-container .message-date{
+    font-size: .6rem;
+
+}
+
+.chat-messages .message-container .dropdown-toggle{
+    white-space: normal;
+}
+
+.chat-messages .message-container .dropdown-toggle:after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
 
 .chat-write-messages{
     background-color: var(--bs-primary);
