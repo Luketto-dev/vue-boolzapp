@@ -193,26 +193,31 @@ const contatti = [
 ];
 
 
+
 const boolZapp = new Vue({
   el: "#app",
   data:{
     contacts: contatti,
     currentContact: contatti[0],
+    pendigCurrentContact: undefined,
     newMessageInputText:'',
     inputSearch: '',
   },
 
   methods:{
+    // funzione che mi ritorna l intero url dell immagine
     getUrls: function(idImg){
       return "../img/avatar" + idImg + ".jpg"
     },
 
+    // funzione che mi ritorna il contatto il cliccato
     getActiveContact: function(contact,i){
       this.currentContact = contact
       
       return this.currentContact
     },
 
+    // funzione che crea un messaggio e lo pusha nell array dei messaggi
     addMessage: function(){
       
       this.currentContact.messages.push({
@@ -221,17 +226,24 @@ const boolZapp = new Vue({
         status: "sent",
       })
 
+      this.newMessageInputText = ''
+
+      this.pendigCurrentContact = this.currentContact
+
+      // faccio partire il messaggio di risposta dopo 1 secondo
       setTimeout(this.addResponse, 1000)
     },
 
+    // funzione che crea un messaggio di risposta automatico
     addResponse :function(){
-      this.currentContact.messages.push({
+      this.pendigCurrentContact.messages.push({
         date: dayjs(),
         message: "OK!",
         status: "received",
       })
     },
 
+    // funzione che mi torna un array filtrato
     getFilteredContact: function(){
       return this.contacts.filter((contact) => {
         if (contact.name.toLowerCase().includes(this.inputSearch.toLowerCase())) {
@@ -241,15 +253,16 @@ const boolZapp = new Vue({
       })
     },
 
+    // funzione che formatta le date
     formatDate: function(date){
       return dayjs(date, "DD/MM/YYYY HH:mm:ss").format("HH:mm")
     },
 
+    // funzione al click per cancellare i massaggi
     deleteMessage: function(i){
       this.currentContact.messages.splice(i,1)
     },
     
-
 
   }
 })

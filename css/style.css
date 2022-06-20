@@ -11,7 +11,7 @@ body{
 }
 
 .active{
-    background-color: #D7DBD6;
+    background-color: #edf0ed;
 }
 
 .bg-top{
@@ -96,10 +96,6 @@ body{
 .contacts-wrapper .contact{
     border-bottom: 1px solid #e2eaf3;
     cursor: pointer;
-}
-
-.contacts-wrapper .contact:focus{
-    background-color: #E9EBEB;
 }
 
 
